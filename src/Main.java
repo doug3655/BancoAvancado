@@ -4,6 +4,7 @@ public class Main {
         Cliente pedro = new Cliente(2,"Silva","9182873","904922");
         Poupanca poupancaJoao = new Poupanca(joao,10);
         Corrente correntePedro = new Corrente(pedro,1000);
+        Cheque cheque = new Cheque(500,"Santader","12/02/2020");
 
         poupancaJoao.depositar(100);
         poupancaJoao.recolherJuros();
@@ -13,7 +14,7 @@ public class Main {
         System.out.printf("\n\n");
 
         correntePedro.depositar(200);
-        correntePedro.depositarCheque(500,"Santader","12/02/2020");
+        correntePedro.depositarCheque(cheque);
         correntePedro.sacar(700);
         correntePedro.sacar(2000);
         correntePedro.consultarSaldo();

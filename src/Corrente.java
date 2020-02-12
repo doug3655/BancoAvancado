@@ -16,10 +16,10 @@ public class Corrente extends Conta{
         this.limiteChequeEspecial = limiteChequeEspecial;
     }
 
-    public void depositarCheque(double valor,String banco,String dataPag){
-        if(valor>0){
-            setSaldo(getSaldo()+valor);
-            System.out.printf("Seu cheque do Banco %s no valor de R$%.2f no dia:%s\n",banco,valor,dataPag);
+    public void depositarCheque(Cheque cheque){
+        if(cheque.getValor()>0){
+            setSaldo(getSaldo()+cheque.getValor());
+            System.out.printf("Seu cheque do Banco %s no valor de R$%.2f do dia:%s foi depositado com sucesso!\n",cheque.getBanco(),cheque.getValor(),cheque.getData());
             //System.out.println("Seu cheque do Banco "+banco+" no valor de R$"+valor+" no dia "+dataPag);
         }else {
             System.out.println("Valor do cheque insuficiente para realizar deposito!Tente novamente com um valor" +
@@ -29,20 +29,22 @@ public class Corrente extends Conta{
 
     @Override
     public void sacar(double valor) {
-        if (getSaldo()>valor){
-            setSaldo(getSaldo()-valor);
+        double saldo = getSaldo();
+        if (saldo>=valor){
+            setSaldo(saldo-valor);
             System.out.println("Saque realizado com sucesso!");
-        }else if(getSaldo()+this.limiteChequeEspecial>valor){
-            this.limiteChequeEspecial-=(valor-getSaldo());
-            System.out.printf("Saque realizado com sucesso!Porem foi utilizado R$%.2f do seu Cheque Especial\n",(valor-getSaldo()));
+        }else if(saldo+this.limiteChequeEspecial>=valor){
+            double diferenca = valor-saldo;
+            this.limiteChequeEspecial-=(diferenca);
+            System.out.printf("Saque realizado com sucesso!Porem foi utilizado R$%.2f do seu Cheque Especial\n",diferenca);
             /*
-             System.out.println("Saque realizado com sucesso!Porem foi utilizado R$"+(valor-getSaldo())+" do seu" +
+             System.out.println("Saque realizado com sucesso!Porem foi utilizado R$"+(valor-saldo)+" do seu" +
                     " Cheque Especial");
             */
-            setSaldo(0);
+            setSaldo(-diferenca);
         }else {
             System.out.println("Saldo conjunto da Conta Corrente + Cheque Especial insuficente para realizar saque," +
-                    "tente novamente com um valor menor ou faca um deposito aumentar seu saldo");
+                    "tente novamente com um valor menor ou faca um deposito para aumentar seu saldo");
         }
     }
 }

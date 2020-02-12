@@ -2,6 +2,10 @@ public class Conta {
     private double saldo=0;
     private Cliente cliente;
 
+    public  Conta(){
+
+    }
+
     public Conta(Cliente cliente){
         this.cliente = cliente;
     }
@@ -32,7 +36,7 @@ public class Conta {
     }
 
     public void sacar(double valor){
-        if(this.saldo>valor){
+        if(this.saldo>=valor){
             this.saldo-=valor;
             System.out.println("Saque realizado com sucesso!");
         }else {

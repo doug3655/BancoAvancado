@@ -16,6 +16,6 @@ public class Poupanca extends Conta {
 
     public void recolherJuros(){
         System.out.printf("Voce recolheu este mes R$%.2f em juros\n",(getSaldo()*(taxaJuros/100)));
-
+        setSaldo(getSaldo()+(getSaldo() * (taxaJuros / 100)));
     }
 }
