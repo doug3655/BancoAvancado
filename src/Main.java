@@ -18,6 +18,5 @@ public class Main {
         correntePedro.sacar(2000);
         correntePedro.consultarSaldo();
         System.out.printf("R$%.2f\n",correntePedro.getLimiteChequeEspecial());
-
     }
 }
