@@ -3,8 +3,8 @@ import java.sql.SQLOutput;
 public class Corrente extends Conta{
     private double limiteChequeEspecial;
 
-    public Corrente(double saldo,Cliente cliente,double limiteChequeEspecial) {
-        super(saldo,cliente);
+    public Corrente(Cliente cliente,double limiteChequeEspecial) {
+        super(cliente);
         this.limiteChequeEspecial = limiteChequeEspecial;
     }
 

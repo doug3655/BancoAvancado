@@ -1,9 +1,8 @@
 public class Conta {
-    private double saldo;
+    private double saldo=0;
     private Cliente cliente;
 
-    public Conta(double saldo,Cliente cliente){
-        this.saldo = saldo;
+    public Conta(Cliente cliente){
         this.cliente = cliente;
     }
 

@@ -2,8 +2,8 @@ public class Main {
     public static void main(String[] args) {
         Cliente joao = new Cliente(1,"Tavares","50050","505051");
         Cliente pedro = new Cliente(2,"Silva","9182873","904922");
-        Poupanca poupancaJoao = new Poupanca(1000,joao,10);
-        Corrente correntePedro = new Corrente(1500,pedro,1000);
+        Poupanca poupancaJoao = new Poupanca(joao,10);
+        Corrente correntePedro = new Corrente(pedro,1000);
 
         poupancaJoao.depositar(100);
         poupancaJoao.recolherJuros();

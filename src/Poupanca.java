@@ -1,8 +1,8 @@
 public class Poupanca extends Conta {
     private double taxaJuros;
 
-    public Poupanca(double saldo,Cliente cliente,double taxaJuros){
-        super(saldo,cliente);
+    public Poupanca(Cliente cliente,double taxaJuros){
+        super(cliente);
         this.taxaJuros = taxaJuros;
     }
 
